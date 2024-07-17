@@ -117,7 +117,12 @@ class Music implements \BMO {
 	public function updateCategoryByID($id, $type, $random = false, $application = '', $format = '') {
 		$sql = "UPDATE music SET type = :type, random = :random, application = :application, format = :format WHERE id = :id";
 		$sth = $this->db->prepare($sql);
-		$sth->execute(["type" => $type ?? '', "random" => $random ?: 0, "application" => $application ?? '', "format" => $format ?? '', "id" => $id]);
+		$sth->execute(
+			["type" => $type ?? '', 
+			"random" => (int) $random ?: 0, 
+			"application" => $application ?? '', 
+			"format" => $format ?? '', 
+			"id" => $id]);
 		needreload();
 	}
 
