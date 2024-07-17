@@ -129,7 +129,7 @@ class Music implements \BMO {
 		$sth = $this->db->prepare($sql);
 		$sth->execute(array(
 			"type" => $type,
-			"random" => $random,
+			"random" => (int) $random,
 			"application" => $application,
 			"format" => $format,
 			"id" => $id
